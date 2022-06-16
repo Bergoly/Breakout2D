@@ -69,5 +69,4 @@ public class BallsManager : MonoBehaviour
             initialBall
         };
     }
-
 }
