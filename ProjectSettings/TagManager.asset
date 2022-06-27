@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ball
   layers:
   - Default
   - TransparentFX
@@ -46,6 +47,9 @@ TagManager:
     locked: 0
   - name: Ball
     uniqueID: 4093711363
+    locked: 0
+  - name: Bricks
+    uniqueID: 2698752045
     locked: 0
   - name: Default
     uniqueID: 0
