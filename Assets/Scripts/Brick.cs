@@ -11,9 +11,10 @@ public class Brick : MonoBehaviour
     public int hitPoints = 1;
     public ParticleSystem destroyEffect;
 
+
     public static event Action<Brick> OnBrickDestrucion;
 
-    private void Start()
+    private void Awake()
     {
         this.sr = this.GetComponent<SpriteRenderer>();
     }
@@ -36,6 +37,7 @@ public class Brick : MonoBehaviour
         }
         else
         {
+            
             //this.sr.sprite = BricksManager.Instance.Sprites[this.hitPoints - 1];
             this.sr.color = new Vector4(sr.color.r-0.2372f, sr.color.g-0.2372f, sr.color.b-0.2372f, 1);
         }
@@ -50,5 +52,11 @@ public class Brick : MonoBehaviour
         MainModule mm = effect.GetComponent<ParticleSystem>().main;
         mm.startColor = new Color(0.1f, 0.1f, 0.1f, 1);
         Destroy(effect, destroyEffect.main.startLifetime.constant);
+    }
+
+    public void Init(Transform containerTransform, int hitpoints)
+    {
+        this.transform.SetParent(containerTransform);
+        this.hitPoints = hitpoints;
     }
 }

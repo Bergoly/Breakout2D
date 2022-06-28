@@ -35,6 +35,8 @@ public class BallsManager : MonoBehaviour
 
     public List<Ball> Balls { get; set; }
 
+
+
     private void Start()
     {
         InitBall();
