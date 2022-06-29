@@ -11,6 +11,7 @@ public class Brick : MonoBehaviour
     public int hitPoints = 1;
     public ParticleSystem destroyEffect;
 
+   
 
     public static event Action<Brick> OnBrickDestrucion;
 
@@ -31,13 +32,13 @@ public class Brick : MonoBehaviour
 
         if(hitPoints <= 0)
         {
+            BricksManager.Instance.RemainingBricks.Remove(this);
             OnBrickDestrucion?.Invoke(this);
             SpawnDestroyEffect();
             Destroy(this.gameObject);
         }
         else
         {
-            
             //this.sr.sprite = BricksManager.Instance.Sprites[this.hitPoints - 1];
             this.sr.color = new Vector4(sr.color.r-0.2372f, sr.color.g-0.2372f, sr.color.b-0.2372f, 1);
         }
