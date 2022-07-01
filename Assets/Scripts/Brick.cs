@@ -34,6 +34,7 @@ public class Brick : MonoBehaviour
         {
             BricksManager.Instance.RemainingBricks.Remove(this);
             OnBrickDestrucion?.Invoke(this);
+            OnBrickDestroy();
             SpawnDestroyEffect();
             Destroy(this.gameObject);
         }
@@ -42,6 +43,44 @@ public class Brick : MonoBehaviour
             //this.sr.sprite = BricksManager.Instance.Sprites[this.hitPoints - 1];
             this.sr.color = new Vector4(sr.color.r-0.2372f, sr.color.g-0.2372f, sr.color.b-0.2372f, 1);
         }
+    }
+
+    private void OnBrickDestroy()
+    {
+        float buffSpawnChance = UnityEngine.Random.Range(0, 100f);
+        float debuffSpawnChance = UnityEngine.Random.Range(0, 100f);
+        bool alreadySpawned = false;
+
+        if (buffSpawnChance <= ItemsManager.Instance.BuffChance)
+        {
+            alreadySpawned = true;
+            Item newBuff = this.SpawnItem(true);
+        }
+
+        if (debuffSpawnChance <= ItemsManager.Instance.DebuffChance && !alreadySpawned)
+        {
+            Item newDebuff = this.SpawnItem(false);
+        }
+    }
+
+    private Item SpawnItem(bool isBuff)
+    {
+        List<Item> collection;
+
+        if (isBuff)
+        {
+            collection = ItemsManager.Instance.AvailableBuffs;
+        }
+        else
+        {
+            collection = ItemsManager.Instance.AvailableDebuffs;
+        }
+
+        int buffIndex = UnityEngine.Random.Range(0, collection.Count);
+        Item prefab = collection[buffIndex];
+        Item newItem = Instantiate(prefab, this.transform.position, Quaternion.identity) as Item;
+
+        return newItem;
     }
 
     private void SpawnDestroyEffect()
