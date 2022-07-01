@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class Paddle : MonoBehaviour
     static Paddle _instance;
 
     public static Paddle Instance => _instance;
+
+    public bool PaddleIsTransforming { get; set; }
 
     private void Awake()
     {
@@ -29,13 +32,20 @@ public class Paddle : MonoBehaviour
     float _defaultPaddleWidthInPixels = 145;
     float _defaultLeftClamp = 310;
     float _defaultRightClamp = 2250;
-    SpriteRenderer _sr;
+    private SpriteRenderer sr;
+    private BoxCollider2D boxCol;
+
+
+    public float extendShrinkDuration = 10;
+    public float paddleWidth = 2;
+    public float paddleHeight = 0.25f;
 
     private void Start()
     {
         _mainCamera = FindObjectOfType<Camera>();
         _paddleInitialY = this.transform.position.y;
-        _sr = GetComponent<SpriteRenderer>();
+        sr = GetComponent<SpriteRenderer>();
+        boxCol = GetComponent<BoxCollider2D>();
         
     }
 
@@ -44,9 +54,53 @@ public class Paddle : MonoBehaviour
         PaddleMovement(); 
     }
 
+    public void StartWidthAnimation(float newWidth)
+    {
+        StartCoroutine(AnimatePaddleWidth(newWidth));
+    }
+
+    private IEnumerator AnimatePaddleWidth(float width)
+    {
+        this.PaddleIsTransforming = true;
+        this.StartCoroutine(ResetPaddleWidthAfterTime(this.extendShrinkDuration));
+
+        if (width > this.sr.size.x)
+        {
+            float currentWidth = this.sr.size.x;
+
+            while (currentWidth < width)
+            {
+                currentWidth += Time.deltaTime * 2;
+                this.sr.size = new Vector2(currentWidth, paddleHeight);
+                boxCol.size = new Vector2(currentWidth, paddleHeight);
+                yield return null;
+            }
+        }
+        else
+        {
+            float currentWidth = this.sr.size.x;
+            
+            while (currentWidth > width)
+            {
+                currentWidth -= Time.deltaTime * 2;
+                this.sr.size = new Vector2(currentWidth, paddleHeight);
+                boxCol.size = new Vector2(currentWidth, paddleHeight);
+                yield return null;
+            }
+        }
+
+        this.PaddleIsTransforming = false;
+    }
+
+    private IEnumerator ResetPaddleWidthAfterTime(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        this.StartWidthAnimation(this.paddleWidth);
+    }
+
     void PaddleMovement()
     {
-        float paddleShift = (_defaultPaddleWidthInPixels - ((_defaultPaddleWidthInPixels / 2) * this._sr.size.x));
+        float paddleShift = (_defaultPaddleWidthInPixels - ((_defaultPaddleWidthInPixels / 2) * this.sr.size.x));
         float leftClamp = _defaultLeftClamp - paddleShift;
         float rightClamp = _defaultRightClamp + paddleShift;
         float mousePositionPixels = Mathf.Clamp(Input.mousePosition.x, leftClamp, rightClamp);
