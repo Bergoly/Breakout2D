@@ -33,14 +33,14 @@ public class GameManager : MonoBehaviour
 
     public static event Action<int> OnLifeLost;
     
-    public int totalLifes = 3;
+    public int totalEnergy = 3;
 
 
-    public int currentLifes { get; set; }
+    public int currentEnergy { get; set; }
 
     private void Start()
     {
-        this.currentLifes = this.totalLifes; 
+        this.currentEnergy = this.totalEnergy; 
         Screen.SetResolution(2560, 1440, true);
         Ball.OnBallDeath += OnBallDeath;
         Brick.OnBrickDestrucion += OnBrickDestruction;
@@ -66,15 +66,15 @@ public class GameManager : MonoBehaviour
     {
         if(BallsManager.Instance.Balls.Count <= 0)
         {
-            this.currentLifes--;
+            this.currentEnergy--;
 
-            if(this.currentLifes < 1)
+            if(this.currentEnergy < 1)
             {
                 gameOverScreen.SetActive(true);
             }
             else
             {
-                OnLifeLost?.Invoke(this.currentLifes);
+                OnLifeLost?.Invoke(this.currentEnergy);
                 BallsManager.Instance.ResetBalls();
                 IsGameStarted = false;
                 //BricksManager.Instance.LoadLevel(BricksManager.Instance.CurrentLevel);

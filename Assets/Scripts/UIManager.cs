@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
 {
     public Text TargetText;
     public Text ScoreText;
-    public Text LifesText;
+    public Text EnergyText;
 
     public int Score { get; set; }
 
@@ -22,12 +22,12 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
       
-        OnLifeLost(GameManager.Instance.totalLifes);
+        OnLifeLost(GameManager.Instance.totalEnergy);
     }
 
-    private void OnLifeLost(int remainingLifes)
+    private void OnLifeLost(int remainingEnergy)
     {
-        LifesText.text = $"LIFES: {remainingLifes-1}";
+        EnergyText.text = $"ENERGY: {remainingEnergy}";
     }
 
     private void OnLevelLoaded()
