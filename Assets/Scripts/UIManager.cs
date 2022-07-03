@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     public Text TargetText;
     public Text ScoreText;
     public Text EnergyText;
+    public Text LevelText;
 
     public int Score { get; set; }
 
@@ -34,6 +35,7 @@ public class UIManager : MonoBehaviour
     {
         UpdateRemainingBricksText();
         UpdateScoreText(0);
+        UpdateLevelText();
     }
 
     private void UpdateScoreText(int increment)
@@ -52,6 +54,11 @@ public class UIManager : MonoBehaviour
     private void UpdateRemainingBricksText()
     {
         TargetText.text = $"TARGET:{Environment.NewLine}{BricksManager.Instance.RemainingBricks.Count} / {BricksManager.Instance.InitialBricksCount}";
+    }
+
+    private void UpdateLevelText()
+    {
+        LevelText.text = $"LEVEL:{Environment.NewLine}{(BricksManager.Instance.CurrentLevel)+1} / {(BricksManager.Instance.LevelsData.Count)+1}";
     }
 
     private void OnDisable()

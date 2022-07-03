@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject gameOverScreen;
     public GameObject victoryScreen;
+    public GameObject pauseScreen;
     
     public bool IsGameStarted { get; set; }
 
@@ -62,6 +63,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
     private void OnBallDeath(Ball obj)
     {
         if(BallsManager.Instance.Balls.Count <= 0)
@@ -90,5 +96,18 @@ public class GameManager : MonoBehaviour
     private void OnDisable()
     {
         Ball.OnBallDeath -= OnBallDeath;
+    }
+
+    private void Update()
+    {
+        if (!pauseScreen.activeSelf && Input.GetKeyDown(KeyCode.Escape))
+        {
+            Time.timeScale = 0;
+            pauseScreen.SetActive(true);
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape)){
+            Time.timeScale = 1;
+            pauseScreen.SetActive(false);
+        }
     }
 }
