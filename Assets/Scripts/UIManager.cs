@@ -24,12 +24,31 @@ public class UIManager : MonoBehaviour
     {
       
         OnLifeLost(GameManager.Instance.totalEnergy);
+        //UpdateHealth(GameManager.Instance.totalEnergy);
     }
+
+ 
 
     private void OnLifeLost(int remainingEnergy)
     {
         EnergyText.text = $"ENERGY: {remainingEnergy}";
     }
+
+    //public void UpdateHealth(int remainingEnergy)
+    //{
+    //    this.hearts = new Image[remainingEnergy];
+    //    for (int i = 0; i < this.hearts.Length; i++)
+    //    {
+    //        if (i < remainingEnergy)
+    //        {
+    //            this.hearts[i].enabled = true;
+    //        }
+    //        else
+    //        {
+    //            this.hearts[i].enabled = false;
+    //        }
+    //    }
+    //}
 
     private void OnLevelLoaded()
     {

@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
         if (BricksManager.Instance.RemainingBricks.Count <= 0)
         {
             BallsManager.Instance.ResetBalls();
-            GameManager.Instance.IsGameStarted = false;
+            Instance.IsGameStarted = false;
             BricksManager.Instance.LoadNextLevel();
 
         }
