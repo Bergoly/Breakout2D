@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
 {
     public Text TargetText;
     public Text ScoreText;
-    public Text EnergyText;
+    public Text LivesText;
     public Text LevelText;
 
     public int Score { get; set; }
@@ -17,21 +17,21 @@ public class UIManager : MonoBehaviour
     {
         Brick.OnBrickDestrucion += OnBrickDestruction;
         BricksManager.OnLevelLoaded += OnLevelLoaded;
-        GameManager.OnLifeLost += OnLifeLost;
+        GameManager.OnLiveLost += OnLiveLost;
     }
 
     private void Start()
     {
       
-        OnLifeLost(GameManager.Instance.totalEnergy);
+        OnLiveLost(GameManager.Instance.AvailableLives);
         //UpdateHealth(GameManager.Instance.totalEnergy);
     }
 
  
 
-    private void OnLifeLost(int remainingEnergy)
+    private void OnLiveLost(int remainingLives)
     {
-        EnergyText.text = $"ENERGY: {remainingEnergy}";
+        LivesText.text = $"LIVES: {remainingLives}";
     }
 
     //public void UpdateHealth(int remainingEnergy)
@@ -84,5 +84,6 @@ public class UIManager : MonoBehaviour
     {
         Brick.OnBrickDestrucion -= OnBrickDestruction;
         BricksManager.OnLevelLoaded -= OnLevelLoaded;
+        GameManager.OnLiveLost -= OnLiveLost;
     }
 }
