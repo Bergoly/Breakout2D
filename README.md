@@ -1,2 +1,2 @@
 # Breakout2D
-test
+Breakout2D is a C# based sample game/project which uses Unity.
