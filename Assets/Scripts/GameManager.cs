@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        this.Lives = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -78,6 +79,7 @@ public class GameManager : MonoBehaviour
             if(this.Lives < 1)
             {
                 gameOverScreen.SetActive(true);
+                Cursor.visible = true;
             }
             else
             {
@@ -92,6 +94,7 @@ public class GameManager : MonoBehaviour
     internal void ShowVictoryScreen()
     {
         victoryScreen.SetActive(true);
+        Cursor.visible = true;
     }
 
     private void OnDisable()
@@ -105,10 +108,12 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 0;
             pauseScreen.SetActive(true);
+            Cursor.visible = true;
         }
         else if (Input.GetKeyDown(KeyCode.Escape)){
             Time.timeScale = 1;
             pauseScreen.SetActive(false);
+            Cursor.visible = false;
         }
     }
 }

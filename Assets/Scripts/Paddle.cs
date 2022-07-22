@@ -48,6 +48,7 @@ public class Paddle : MonoBehaviour
 
     private void Start()
     {
+        Cursor.visible = false;
         _mainCamera = FindObjectOfType<Camera>();
         _paddleInitialY = this.transform.position.y;
         sr = GetComponent<SpriteRenderer>();

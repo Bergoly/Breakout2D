@@ -11,6 +11,9 @@ public class UIManager : MonoBehaviour
     public Text LivesText;
     public Text LevelText;
 
+    //Heart Bar
+    public Image[] hearts;
+    
     public int Score { get; set; }
 
     public void Awake()
@@ -24,7 +27,6 @@ public class UIManager : MonoBehaviour
     {
       
         OnLiveLost(GameManager.Instance.AvailableLives);
-        //UpdateHealth(GameManager.Instance.totalEnergy);
     }
 
  
@@ -34,21 +36,7 @@ public class UIManager : MonoBehaviour
         LivesText.text = $"LIVES: {remainingLives}";
     }
 
-    //public void UpdateHealth(int remainingEnergy)
-    //{
-    //    this.hearts = new Image[remainingEnergy];
-    //    for (int i = 0; i < this.hearts.Length; i++)
-    //    {
-    //        if (i < remainingEnergy)
-    //        {
-    //            this.hearts[i].enabled = true;
-    //        }
-    //        else
-    //        {
-    //            this.hearts[i].enabled = false;
-    //        }
-    //    }
-    //}
+   
 
     private void OnLevelLoaded()
     {
