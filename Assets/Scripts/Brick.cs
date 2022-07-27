@@ -14,7 +14,8 @@ public class Brick : MonoBehaviour
 
     public static event Action<Brick> OnBrickDestrucion;
 
- 
+    //GameObject am = GameObject.FindGameObjectWithTag("AudioManager");
+    
 
     private void Awake()
     {
@@ -22,7 +23,6 @@ public class Brick : MonoBehaviour
         this.boxCollider = this.GetComponent<BoxCollider2D>();
         Ball.OnLightningBallEnable += OnLightningBallEnable;
         Ball.OnLightningBallDisable += OnLightningBallDisable;
-        
     }
 
     private void OnLightningBallDisable(Ball obj)
@@ -47,7 +47,6 @@ public class Brick : MonoBehaviour
 
         if (collision.collider.tag == "Ball")
         {
-            Debug.Log("OnCollisionEnter2D");
             Ball ball = collision.gameObject.GetComponent<Ball>();
             instantKill = ball.isLightningBall;
         }
@@ -60,7 +59,6 @@ public class Brick : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("OnTriggerEnter2D");
         bool instantKill = false;
 
         if (collision.tag == "Ball")
@@ -82,16 +80,18 @@ public class Brick : MonoBehaviour
 
         if(this.hitPoints <= 0 || instantKill)
         {
-           
+            AudioManager.Instance.audioSource.PlayOneShot(AudioManager.Instance.death);
             BricksManager.Instance.RemainingBricks.Remove(this);
             OnBrickDestrucion?.Invoke(this);
             OnBrickDestroy();
             SpawnDestroyEffect();
             Destroy(this.gameObject);
+            
         }
         else
         {
             //this.sr.sprite = BricksManager.Instance.Sprites[this.hitPoints - 1];
+            AudioManager.Instance.audioSource.PlayOneShot(AudioManager.Instance.hit);
             this.sr.color = new Vector4(sr.color.r-0.2372f, sr.color.g-0.2372f, sr.color.b-0.2372f, 1);
         }
     }
