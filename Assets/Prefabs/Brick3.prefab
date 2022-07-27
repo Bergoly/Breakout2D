@@ -126,3 +126,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitPoints: 3
   destroyEffect: {fileID: 7391771494347019179, guid: 67f073fedbacc044bb57e37d77686175, type: 3}
+  hit: {fileID: 8300000, guid: 0f63feb5ef86f8d41acb88ab90d18f8e, type: 3}
+  death: {fileID: 8300000, guid: 1ae3dce91521f8b49a310879ccbeb71a, type: 3}

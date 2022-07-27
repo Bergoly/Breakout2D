@@ -12,9 +12,9 @@ public class Brick : MonoBehaviour
     public int hitPoints = 1;
     public ParticleSystem destroyEffect;
 
-   
-
     public static event Action<Brick> OnBrickDestrucion;
+
+ 
 
     private void Awake()
     {
@@ -22,6 +22,7 @@ public class Brick : MonoBehaviour
         this.boxCollider = this.GetComponent<BoxCollider2D>();
         Ball.OnLightningBallEnable += OnLightningBallEnable;
         Ball.OnLightningBallDisable += OnLightningBallDisable;
+        
     }
 
     private void OnLightningBallDisable(Ball obj)
@@ -42,11 +43,11 @@ public class Brick : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
         bool instantKill = false;
 
         if (collision.collider.tag == "Ball")
         {
+            Debug.Log("OnCollisionEnter2D");
             Ball ball = collision.gameObject.GetComponent<Ball>();
             instantKill = ball.isLightningBall;
         }
@@ -59,6 +60,7 @@ public class Brick : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("OnTriggerEnter2D");
         bool instantKill = false;
 
         if (collision.tag == "Ball")
@@ -75,10 +77,12 @@ public class Brick : MonoBehaviour
 
     private void TakeDamage(bool instantKill)
     {
+        
         this.hitPoints--;
 
         if(this.hitPoints <= 0 || instantKill)
         {
+           
             BricksManager.Instance.RemainingBricks.Remove(this);
             OnBrickDestrucion?.Invoke(this);
             OnBrickDestroy();

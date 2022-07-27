@@ -98,7 +98,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 331671807219918356}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -137,7 +137,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ee743ffa94a16499d7c3b90cbfd09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLightningBall: 0
   lightningBallEffect: {fileID: 6109527479589711798}
+  lightningBallDuration: 10
 --- !u!1 &9117282901413375534
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,6 +741,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
+    gravitySource: 0
     maxNumParticles: 1000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
@@ -4123,6 +4126,7 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
+    textureScale: {x: 1, y: 1}
     ribbonCount: 1
     shadowBias: 0.5
     worldSpace: 0
