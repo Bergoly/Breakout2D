@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8380232662371499695}
   - component: {fileID: 8380232662371499694}
   - component: {fileID: 8380232662371499689}
-  - component: {fileID: 8380232662371499690}
+  - component: {fileID: -5763041580463162377}
   m_Layer: 0
   m_Name: ExtendPaddle
   m_TagString: Untagged
@@ -134,7 +134,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8380232662371499690
+--- !u!114 &-5763041580463162377
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8380232662371499688}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3730ae6b86e322d40b1ed429b7a115c7, type: 3}
+  m_Script: {fileID: 11500000, guid: 81e7349880e5d7a4b935a368f07cd238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   NewWidth: 2.5

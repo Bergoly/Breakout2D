@@ -5896,6 +5896,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 62c392695de49974fae28fdcae58641b, type: 3}
   hit: {fileID: 8300000, guid: 0f63feb5ef86f8d41acb88ab90d18f8e, type: 3}
   death: {fileID: 8300000, guid: 1ae3dce91521f8b49a310879ccbeb71a, type: 3}
+  shot: {fileID: 8300000, guid: f2d91d76ac41b1144a79278abf1e35bd, type: 3}
+  grow: {fileID: 8300000, guid: 475944a1121dc8e4fa4520b4fabd74b8, type: 3}
+  shrink: {fileID: 8300000, guid: b84980a206c50b24b823cc782e5ac7ce, type: 3}
+  lightning: {fileID: 8300000, guid: 9766d815fc30c80498fd8c96af2af814, type: 3}
+  multiBall: {fileID: 8300000, guid: 497585d41ed810945acf3a920e067ec5, type: 3}
 --- !u!82 &405313724
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6555,11 +6560,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AvailableBuffs:
   - {fileID: 6035205495814262164, guid: 86dced20768f38646989a50a48a2e30d, type: 3}
-  - {fileID: 8380232662371499690, guid: 40b34691003bb6a4094148547332f065, type: 3}
+  - {fileID: -5763041580463162377, guid: 40b34691003bb6a4094148547332f065, type: 3}
   - {fileID: 2045528942218339794, guid: 5ea99f43250294f4b9dc36f7ad048a24, type: 3}
   - {fileID: 1366896384918820152, guid: 3fcf3441dcd11ad4fb5bc960204152ca, type: 3}
   AvailableDebuffs:
-  - {fileID: 4733042286196437582, guid: 511bbe1156d233f469ee9417d272fdd2, type: 3}
+  - {fileID: 2642631358718212247, guid: 511bbe1156d233f469ee9417d272fdd2, type: 3}
   BuffChance: 10
   DebuffChance: 10
 --- !u!1 &858768942
@@ -7316,6 +7321,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1330438363}
   m_CullTransparentMesh: 1
+--- !u!1001 &1334334950
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4733042286196437578, guid: 511bbe1156d233f469ee9417d272fdd2, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733042286196437578, guid: 511bbe1156d233f469ee9417d272fdd2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733042286196437578, guid: 511bbe1156d233f469ee9417d272fdd2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733042286196437578, guid: 511bbe1156d233f469ee9417d272fdd2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733042286196437578, guid: 511bbe1156d233f469ee9417d272fdd2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733042286196437578, guid: 511bbe1156d233f469ee9417d272fdd2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733042286196437578, guid: 511bbe1156d233f469ee9417d272fdd2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733042286196437578, guid: 511bbe1156d233f469ee9417d272fdd2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733042286196437578, guid: 511bbe1156d233f469ee9417d272fdd2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733042286196437578, guid: 511bbe1156d233f469ee9417d272fdd2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733042286196437578, guid: 511bbe1156d233f469ee9417d272fdd2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733042286196437583, guid: 511bbe1156d233f469ee9417d272fdd2, type: 3}
+      propertyPath: m_Name
+      value: ShrinkPaddle
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: 511bbe1156d233f469ee9417d272fdd2, type: 3}
 --- !u!1 &1465487223
 GameObject:
   m_ObjectHideFlags: 0

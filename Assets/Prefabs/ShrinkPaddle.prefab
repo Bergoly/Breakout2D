@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4733042286196437579}
   - component: {fileID: 4733042286196437580}
   - component: {fileID: 4733042286196437581}
-  - component: {fileID: 4733042286196437582}
+  - component: {fileID: 2642631358718212247}
   m_Layer: 0
   m_Name: ShrinkPaddle
   m_TagString: Untagged
@@ -134,7 +134,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4733042286196437582
+--- !u!114 &2642631358718212247
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4733042286196437583}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3730ae6b86e322d40b1ed429b7a115c7, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e857d9b5b3212e438adcddb36c90ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   NewWidth: 1

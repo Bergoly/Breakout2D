@@ -82,8 +82,10 @@ public class Paddle : MonoBehaviour
         {
             float currentWidth = this.sr.size.x;
 
+            
             while (currentWidth < width)
             {
+                
                 currentWidth += Time.deltaTime * 2;
                 this.sr.size = new Vector2(currentWidth, paddleHeight);
                 boxCol.size = new Vector2(currentWidth, paddleHeight);
@@ -193,6 +195,7 @@ public class Paddle : MonoBehaviour
         leftMuzzle.SetActive(true);
         rightMuzzle.SetActive(true);
 
+        AudioManager.Instance.audioSource.PlayOneShot(AudioManager.Instance.shot);
         this.SpawnBullet(leftMuzzle);
         this.SpawnBullet(rightMuzzle);
     }

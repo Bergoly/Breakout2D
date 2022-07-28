@@ -28,7 +28,11 @@ public class AudioManager : MonoBehaviour
     public AudioClip[] background_audioClipArray;
     public AudioClip hit;
     public AudioClip death;
-    
+    public AudioClip shot;
+    public AudioClip grow;
+    public AudioClip shrink;
+    public AudioClip lightning;
+    public AudioClip multiBall;
 
     private void Start()
     {

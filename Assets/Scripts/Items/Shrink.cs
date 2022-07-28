@@ -1,15 +1,16 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExtendOrShrink : Item
+public class Shrink : Item
 {
-    public float NewWidth = 2.5f;
-    
+    public float NewWidth = 1.0f;
+
     protected override void ApplyEffect()
     {
         if (Paddle.Instance != null && !Paddle.Instance.PaddleIsTransforming)
         {
+            AudioManager.Instance.audioSource.PlayOneShot(AudioManager.Instance.shrink);
             Paddle.Instance.StartWidthAnimation(NewWidth);
         }
     }
