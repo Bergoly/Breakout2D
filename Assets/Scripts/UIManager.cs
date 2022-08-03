@@ -65,7 +65,7 @@ public class UIManager : MonoBehaviour
 
     private void UpdateLevelText()
     {
-        LevelText.text = $"LEVEL:{Environment.NewLine}{(BricksManager.Instance.CurrentLevel)+1} / {(BricksManager.Instance.LevelsData.Count)+1}";
+        LevelText.text = $"LEVEL:{Environment.NewLine}{(BricksManager.Instance.CurrentLevel)+1} / {(BricksManager.Instance.LevelsData.Count)}";
     }
 
     private void OnDisable()

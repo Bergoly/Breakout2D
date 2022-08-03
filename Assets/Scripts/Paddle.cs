@@ -29,8 +29,8 @@ public class Paddle : MonoBehaviour
 
     #endregion
 
-    Camera _mainCamera;
-    float _paddleInitialY;
+    Camera mainCamera;
+    float paddleInitialY;
     float _defaultPaddleWidthInPixels = 145;
     float _defaultLeftClamp = 310;
     float _defaultRightClamp = 2250;
@@ -46,15 +46,16 @@ public class Paddle : MonoBehaviour
     public float paddleWidth = 2;
     public float paddleHeight = 0.25f;
 
+
     private void Start()
     {
         Cursor.visible = false;
-        _mainCamera = FindObjectOfType<Camera>();
-        _paddleInitialY = this.transform.position.y;
+        mainCamera = FindObjectOfType<Camera>();
+        paddleInitialY = this.transform.position.y;
         sr = GetComponent<SpriteRenderer>();
         boxCol = GetComponent<BoxCollider2D>();
-        
     }
+
 
     void Update()
     {
@@ -120,8 +121,10 @@ public class Paddle : MonoBehaviour
         float leftClamp = _defaultLeftClamp - paddleShift;
         float rightClamp = _defaultRightClamp + paddleShift;
         float mousePositionPixels = Mathf.Clamp(Input.mousePosition.x, leftClamp, rightClamp);
-        float mousePositionWorldX = _mainCamera.ScreenToWorldPoint(new Vector3(mousePositionPixels, 0, 0)).x;   
-        this.transform.position = new Vector3(mousePositionWorldX, _paddleInitialY, 0);
+        float mousePositionWorldX = mainCamera.ScreenToWorldPoint(new Vector3(mousePositionPixels, 0, 0)).x;
+        this.transform.position = new Vector3(mousePositionWorldX, paddleInitialY, 0);
+        //float mousePositionWorldX = mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, 0, 0)).x;
+        //this.transform.position = new Vector3(mousePositionWorldX, paddleInitialY, 0);
     }
 
     private void OnCollisionEnter2D(Collision2D coll)

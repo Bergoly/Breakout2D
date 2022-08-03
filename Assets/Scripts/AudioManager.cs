@@ -36,7 +36,15 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        audioSource.PlayOneShot(RandomClip());
+        audioSource.PlayOneShot(RandomClip(), 0.4f);
+    }
+
+    private void Update()
+    {
+        if (audioSource.isPlaying == false)
+        {
+            audioSource.PlayOneShot(RandomClip(), 0.4f);
+        }
     }
 
     AudioClip RandomClip()
