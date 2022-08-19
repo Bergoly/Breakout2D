@@ -28,12 +28,14 @@ public class Paddle : MonoBehaviour
     }
 
     #endregion
-
     Camera mainCamera;
     float paddleInitialY;
-    float _defaultPaddleWidthInPixels = 145;
-    float _defaultLeftClamp = 310;
-    float _defaultRightClamp = 2250;
+    //float _defaultPaddleWidthInPixels = 145;
+    float _defaultPaddleWidthInPixels;
+    //float _defaultLeftClamp = 310;
+    float _defaultLeftClamp;
+    //float _defaultRightClamp = 2250;
+    float _defaultRightClamp;
     private SpriteRenderer sr;
     private BoxCollider2D boxCol;
 
@@ -43,12 +45,18 @@ public class Paddle : MonoBehaviour
     public Projectile bulletPrefab;
 
     public float extendShrinkDuration = 10;
-    public float paddleWidth = 2;
+    //public float paddleWidth = 2;
+    public float paddleWidth;
     public float paddleHeight = 0.25f;
 
 
     private void Start()
     {
+        _defaultLeftClamp = (float)(Camera.main.pixelRect.width * 0.1211);
+        _defaultRightClamp = (float)(Camera.main.pixelRect.width * 0.8789);
+        paddleWidth = (float)(Camera.main.pixelRect.width * 0.00078125);
+        _defaultPaddleWidthInPixels = (float)(Camera.main.pixelRect.width * 0.0283203125);
+
         Cursor.visible = false;
         mainCamera = FindObjectOfType<Camera>();
         paddleInitialY = this.transform.position.y;
