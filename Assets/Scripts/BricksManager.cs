@@ -37,9 +37,9 @@ public class BricksManager : MonoBehaviour
     //public Color[] BrickColors;
 
     private int maxRows = 17;
-    private int maxCols = 12;
+    private int maxCols = 17;
     private GameObject bricksContainer;
-    private float initialBrickSpawnPositionX = -4.4f;
+    private float initialBrickSpawnPositionX = -6.4f;
     private float initialBrickSpawnPositionY = 3.6f;
     private float shiftAmountX = 0.8f;
     private float shiftAmountY = 0.4f;

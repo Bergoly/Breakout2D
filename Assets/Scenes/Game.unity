@@ -5397,7 +5397,7 @@ MonoBehaviour:
   - {fileID: 2963043283940594230, guid: d1612e70f1a15f64bbc18e28445cb750, type: 3}
   - {fileID: 868527083708014934, guid: d0bdd0f0304dc0741a6ee247d81f468e, type: 3}
   - {fileID: 8538278639480471824, guid: a22fbd7daa868d849ade691fa5ef1ad4, type: 3}
-  CurrentLevel: 0
+  CurrentLevel: 4
 --- !u!1 &202516881
 GameObject:
   m_ObjectHideFlags: 0
@@ -5894,6 +5894,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e7bfb165ce06ed64081840fbc8d1970c, type: 3}
   - {fileID: 8300000, guid: 5a83967ff632a3c499daf41ed82cd57c, type: 3}
   - {fileID: 8300000, guid: 62c392695de49974fae28fdcae58641b, type: 3}
+  zelda: {fileID: 8300000, guid: 86d238e5257d87043890e1245dded9a7, type: 3}
   hit: {fileID: 8300000, guid: 0f63feb5ef86f8d41acb88ab90d18f8e, type: 3}
   death: {fileID: 8300000, guid: 1ae3dce91521f8b49a310879ccbeb71a, type: 3}
   shot: {fileID: 8300000, guid: f2d91d76ac41b1144a79278abf1e35bd, type: 3}

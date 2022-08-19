@@ -26,6 +26,7 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip[] background_audioClipArray;
+    public AudioClip zelda;
     public AudioClip hit;
     public AudioClip death;
     public AudioClip shot;
@@ -45,6 +46,10 @@ public class AudioManager : MonoBehaviour
         {
             audioSource.PlayOneShot(RandomClip(), 0.4f);
         }
+        //if (BricksManager.Instance.CurrentLevel == 5){
+        //    audioSource.Stop();
+        //    audioSource.PlayOneShot(zelda, 0.4f);
+        //}
     }
 
     AudioClip RandomClip()
