@@ -5397,7 +5397,8 @@ MonoBehaviour:
   - {fileID: 2963043283940594230, guid: d1612e70f1a15f64bbc18e28445cb750, type: 3}
   - {fileID: 868527083708014934, guid: d0bdd0f0304dc0741a6ee247d81f468e, type: 3}
   - {fileID: 8538278639480471824, guid: a22fbd7daa868d849ade691fa5ef1ad4, type: 3}
-  CurrentLevel: 4
+  - {fileID: 8538278639480471824, guid: d93270373459c744a8caa56fecbc0a8f, type: 3}
+  CurrentLevel: 0
 --- !u!1 &202516881
 GameObject:
   m_ObjectHideFlags: 0
@@ -5854,6 +5855,7 @@ GameObject:
   - component: {fileID: 405313722}
   - component: {fileID: 405313723}
   - component: {fileID: 405313724}
+  - component: {fileID: 405313725}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -5888,13 +5890,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e70c378ad5cd4140939018595548cfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 405313724}
+  musicPlayer: {fileID: 405313724}
+  effectPlayer: {fileID: 405313725}
   background_audioClipArray:
   - {fileID: 8300000, guid: a1495888ab80e7646bbfff81e3e93ad3, type: 3}
   - {fileID: 8300000, guid: e7bfb165ce06ed64081840fbc8d1970c, type: 3}
   - {fileID: 8300000, guid: 5a83967ff632a3c499daf41ed82cd57c, type: 3}
   - {fileID: 8300000, guid: 62c392695de49974fae28fdcae58641b, type: 3}
-  zelda: {fileID: 8300000, guid: 86d238e5257d87043890e1245dded9a7, type: 3}
+  - {fileID: 8300000, guid: 80bf5d4b02b017643bb9c1f988fc957b, type: 3}
   hit: {fileID: 8300000, guid: 0f63feb5ef86f8d41acb88ab90d18f8e, type: 3}
   death: {fileID: 8300000, guid: 1ae3dce91521f8b49a310879ccbeb71a, type: 3}
   shot: {fileID: 8300000, guid: f2d91d76ac41b1144a79278abf1e35bd, type: 3}
@@ -5917,6 +5920,102 @@ AudioSource:
   m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &405313725
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405313721}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.1
+  m_Pitch: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -7092,7 +7191,7 @@ MonoBehaviour:
   gameOverScreen: {fileID: 1060582017}
   victoryScreen: {fileID: 114435460}
   pauseScreen: {fileID: 8846423}
-  AvailableLives: 3
+  AvailableLives: 5
 --- !u!4 &1175482567
 Transform:
   m_ObjectHideFlags: 0

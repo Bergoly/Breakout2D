@@ -64,7 +64,7 @@ public class BallsManager : MonoBehaviour
 
     public void SpawnBalls(Vector3 position, int count, bool isLightningBall)
     {
-        AudioManager.Instance.audioSource.PlayOneShot(AudioManager.Instance.multiBall);
+        AudioManager.Instance.effectPlayer.PlayOneShot(AudioManager.Instance.multiBall);
         for (int i = 0; i < count; i++)
         {
             Ball spawnedBall = Instantiate(ballPrefab, position, Quaternion.identity) as Ball;

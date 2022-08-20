@@ -10,7 +10,7 @@ public class Extend : Item
     {
         if (Paddle.Instance != null && !Paddle.Instance.PaddleIsTransforming)
         {
-            AudioManager.Instance.audioSource.PlayOneShot(AudioManager.Instance.grow);
+            AudioManager.Instance.effectPlayer.PlayOneShot(AudioManager.Instance.grow);
             Paddle.Instance.StartWidthAnimation(NewWidth);
         }
     }

@@ -10,7 +10,7 @@ public class Shrink : Item
     {
         if (Paddle.Instance != null && !Paddle.Instance.PaddleIsTransforming)
         {
-            AudioManager.Instance.audioSource.PlayOneShot(AudioManager.Instance.shrink);
+            AudioManager.Instance.effectPlayer.PlayOneShot(AudioManager.Instance.shrink);
             Paddle.Instance.StartWidthAnimation(NewWidth);
         }
     }

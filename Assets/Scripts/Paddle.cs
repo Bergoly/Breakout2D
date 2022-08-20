@@ -206,7 +206,7 @@ public class Paddle : MonoBehaviour
         leftMuzzle.SetActive(true);
         rightMuzzle.SetActive(true);
 
-        AudioManager.Instance.audioSource.PlayOneShot(AudioManager.Instance.shot);
+        AudioManager.Instance.effectPlayer.PlayOneShot(AudioManager.Instance.shot);
         this.SpawnBullet(leftMuzzle);
         this.SpawnBullet(rightMuzzle);
     }

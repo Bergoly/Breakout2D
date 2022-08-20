@@ -80,7 +80,7 @@ public class Brick : MonoBehaviour
 
         if(this.hitPoints <= 0 || instantKill)
         {
-            AudioManager.Instance.audioSource.PlayOneShot(AudioManager.Instance.death);
+            AudioManager.Instance.effectPlayer.PlayOneShot(AudioManager.Instance.death);
             BricksManager.Instance.RemainingBricks.Remove(this);
             OnBrickDestrucion?.Invoke(this);
             OnBrickDestroy();
@@ -91,8 +91,8 @@ public class Brick : MonoBehaviour
         else
         {
             //this.sr.sprite = BricksManager.Instance.Sprites[this.hitPoints - 1];
-            AudioManager.Instance.audioSource.PlayOneShot(AudioManager.Instance.hit);
-            this.sr.color = new Vector4(sr.color.r-0.2372f, sr.color.g-0.2372f, sr.color.b-0.2372f, 1);
+            AudioManager.Instance.effectPlayer.PlayOneShot(AudioManager.Instance.hit);
+            this.sr.color = new Vector4(sr.color.r-0.3f, sr.color.g-0.3f, sr.color.b-0.3f, 1);
         }
     }
 

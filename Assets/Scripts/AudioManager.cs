@@ -24,9 +24,9 @@ public class AudioManager : MonoBehaviour
 
     #endregion
 
-    public AudioSource audioSource;
+    public AudioSource musicPlayer;
+    public AudioSource effectPlayer;
     public AudioClip[] background_audioClipArray;
-    public AudioClip zelda;
     public AudioClip hit;
     public AudioClip death;
     public AudioClip shot;
@@ -35,25 +35,30 @@ public class AudioManager : MonoBehaviour
     public AudioClip lightning;
     public AudioClip multiBall;
 
+
     private void Start()
     {
-        audioSource.PlayOneShot(RandomClip(), 0.4f);
+        musicPlayer.clip = RandomClip();
+        musicPlayer.Play();
     }
 
     private void Update()
     {
-        if (audioSource.isPlaying == false)
-        {
-            audioSource.PlayOneShot(RandomClip(), 0.4f);
-        }
-        //if (BricksManager.Instance.CurrentLevel == 5){
-        //    audioSource.Stop();
-        //    audioSource.PlayOneShot(zelda, 0.4f);
+        //if (BricksManager.Instance.CurrentLevel == 5)
+        //{
+        //    musicPlayer.Pause();
+        //    musicPlayer.clip = background_audioClipArray[4];
+        //    //musicPlayer.volume = 0.07f;
+        //    musicPlayer.Play();
         //}
+        if (musicPlayer.isPlaying == false)
+        {
+            musicPlayer.Play();
+        }
     }
 
     AudioClip RandomClip()
     {
-        return background_audioClipArray[Random.Range(0, background_audioClipArray.Length)];
+        return background_audioClipArray[Random.Range(0, background_audioClipArray.Length-1)];
     }
 }

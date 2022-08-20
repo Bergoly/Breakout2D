@@ -32,7 +32,7 @@ public class Ball : MonoBehaviour
     {
         if (!this.isLightningBall)
         {
-            AudioManager.Instance.audioSource.PlayOneShot(AudioManager.Instance.lightning, 1.0f);
+            AudioManager.Instance.effectPlayer.PlayOneShot(AudioManager.Instance.lightning, 1.0f);
             this.isLightningBall = true;
             this.sr.enabled = false;
             lightningBallEffect.gameObject.SetActive(true);

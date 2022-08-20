@@ -49,6 +49,16 @@ public class BricksManager : MonoBehaviour
     public int InitialBricksCount { get; set; }
     public int CurrentLevel;
 
+
+
+
+    private KeyCode[] sequence = new KeyCode[]{
+    KeyCode.L,
+    KeyCode.I,
+    KeyCode.N,
+    KeyCode.K};
+    private int sequenceIndex;
+
     private void Start()
     {
         this.bricksContainer = new GameObject("BricksContainer");
@@ -151,5 +161,18 @@ public class BricksManager : MonoBehaviour
             }
         }
         return levelsData;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(sequence[sequenceIndex]))
+        {
+            if (++sequenceIndex == sequence.Length)
+            {
+                sequenceIndex = 0;
+                LoadLevel(5);
+            }
+        }
+        else if (Input.anyKeyDown) sequenceIndex = 0;
     }
 }
